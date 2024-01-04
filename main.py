@@ -26,6 +26,11 @@ assistant_id = functions.create_assistant(client)
 print("Assistant created with ID:", assistant_id)
 
 
+# Return True if the string is enclosed within {{ }}
+def check_string(run_id):
+  return (run_id.startswith("{{") and run_id.endswith("}}"))
+
+
 # Create thread
 @app.route('/start', methods=['GET'])
 def start_conversation():
@@ -40,8 +45,8 @@ def chat():
   data = request.json
   thread_id = data.get('thread_id')
   user_input = data.get('message', '')
-  if not thread_id:
-    print("Error: Missing thread_id in /chat")
+  if not thread_id or check_string(thread_id):
+    print(f"Error: Missing thread_id in /chat or enclosed: {thread_id}")
     return jsonify({"error": "Missing thread_id"}), 400
   print("Received message for thread ID:", thread_id, "Message:", user_input)
 
@@ -53,11 +58,6 @@ def chat():
                                         assistant_id=assistant_id)
   print("Run started with ID:", run.id)
   return jsonify({"run_id": run.id})
-
-
-def check_string(run_id):
-  # Return False if the string is enclosed within {{ }}
-  return (run_id.startswith("{{") and run_id.endswith("}}"))
 
 
 # Check status of run
