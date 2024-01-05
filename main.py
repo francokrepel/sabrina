@@ -22,8 +22,13 @@ app = Flask(__name__)
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Load assistant ID from file or create new one
-assistant_id = functions.create_assistant(client)
-print("Assistant created with ID:", assistant_id)
+# assistant_id = functions.create_assistant(client)
+# print("Assistant created with ID:", assistant_id)
+
+assistant_ids = {
+    'insta': 'asst_25XNnQWG1tk5RDQv5dDhUCNh',
+    'telegram': 'asst_7qF1sWGXNTkuEaJLcZnueTtn'
+}
 
 
 # Return True if the string is enclosed within {{ }}
@@ -45,6 +50,8 @@ def chat():
   data = request.json
   thread_id = data.get('thread_id')
   user_input = data.get('message', '')
+  assistant_id = assistant_ids[data.get('assistant')]
+
   if not thread_id or check_string(thread_id):
     print(f"Error: Missing thread_id in /chat or enclosed: {thread_id}")
     return jsonify({"error": "Missing thread_id"}), 400
