@@ -74,7 +74,9 @@ def check_run_status():
   thread_id = data.get('thread_id')
   run_id = data.get('run_id')
   if not thread_id or not run_id or check_string(run_id):
-    print(f"Error: Missing thread_id or run_id in /check, run_id: {run_id}")
+    print(
+        f"Error: Missing thread_id: {thread_id} or run_id in /check, run_id: {run_id}"
+    )
     return jsonify({"response": "error"})
 
   # Start timer ensuring no more than 9 seconds, ManyChat timeout is 10s
