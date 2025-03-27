@@ -19,7 +19,7 @@ else:
   print("OpenAI version is compatible.")
 
 app = Flask(__name__)
-client = OpenAI(
+client = openai.OpenAI(
   api_key=OPENAI_API_KEY,
   default_headers={"OpenAI-Beta": "assistants=v2"}
 )
