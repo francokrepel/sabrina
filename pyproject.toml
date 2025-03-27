@@ -6,7 +6,7 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 # python = ">=3.10.0,<3.11"
-python = ">=3.10.0,<3.12"
+python = ">=3.10.0,<3.14"
 flask = "^3.0.0"
 functions = "^0.7.0"
 openai = "^1.14.3"
