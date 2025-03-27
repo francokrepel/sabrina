@@ -9,7 +9,7 @@ authors = ["Your Name <you@example.com>"]
 python = ">=3.10.0,<3.12"
 flask = "^3.0.0"
 functions = "^0.7.0"
-openai = "^1.2.3"
+openai = "^1.14.3"
 packaging = "^23.2"
 requests = "^2.31.0"
 gunicorn = "^21.2.0"
