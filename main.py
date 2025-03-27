@@ -18,7 +18,7 @@ OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 #   print("OpenAI version is compatible.")
 
 app = Flask(__name__)
-client = openai.OpenAI(
+client = OpenAI(
   api_key=OPENAI_API_KEY,
   default_headers={"OpenAI-Beta": "assistants=v2"}
 )
