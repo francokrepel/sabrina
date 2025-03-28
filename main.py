@@ -29,7 +29,8 @@ client = OpenAI(
 
 assistant_ids = {
     'insta': 'asst_25XNnQWG1tk5RDQv5dDhUCNh',
-    'telegram': 'asst_7qF1sWGXNTkuEaJLcZnueTtn'
+    'telegram': 'asst_7qF1sWGXNTkuEaJLcZnueTtn',
+    'insta_25': 'asst_bzPkvp7sQETRhFPIaScqIDwA'
 }
 
 
